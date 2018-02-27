@@ -5,13 +5,17 @@ from newsapi import NewsApiClient
 
 # writes on a txt file the urls of articles that are from a specific news source
 # & contain a keyword
-# sources of interest : nyt-news, bbc-news, breitbard-news, fox-news, the-washington-post
+# sources of interest : nyt-news, bbc-news, breitbart-news, fox-news, the-washington-post
 # we can use any source from https://newsapi.org/sources
 # pages is the number of pages of output we take urls from
 #
 # for the NYT we use their api, otherwise we use news-api
 
-def get_url(keyword, source, file_name, pages):
+def main():
+  keyword = raw_input("Enter keyword you're searching for: ")
+  source = raw_input("Enter source (nyt/bbc/breitbart/fox-news, the-washington-post): ")
+  file_name = raw_input("File name to save urls to: ")
+  pages = int(raw_input("Number of urls: "))/10
   file = open(file_name + ".txt", "w")
   print "file made"
   for x in range(0, pages):
@@ -38,4 +42,5 @@ def get_url(keyword, source, file_name, pages):
             file.write(str(doc['url'])+"\n")
   file.close()
 
-get_url("trump", "nyt-news", "test", 10)
+if __name__ == "__main__":
+    main()
