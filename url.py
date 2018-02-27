@@ -16,7 +16,7 @@ def nyt_api():
     for doc in urls_json['response']['docs']:
       if 'new_desk' in doc and doc['new_desk'] == "Washington":
         file.write(str(doc['web_url'])+"\n")
-    time.sleep(1)
+    time.sleep(1)ad
 
   file.close()
 
@@ -24,9 +24,7 @@ def news_api(q, source):
   # gets urls from articles from WaPo, BBC, Breitbard, Fox
   for x in range(0, 100):
     newsapi = NewsApiClient(api_key="db4d6ae37f90478d966e25d854213e1c")
-    urls_json = newsapi.get_everything(q=q,
-                                        sources=source,
-                                        page=x)
+    urls_json = newsapi.get_everything(q=q,sources=source,page=x)
     if 'articles' in urls_json:
       for doc in urls_json['articles']:
         if 'url' in doc:
