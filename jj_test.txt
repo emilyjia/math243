@@ -1,0 +1,7 @@
+(ROOT
+  (S
+    (NP (DT The) (JJ fat) (JJ red) (NN dog))
+    (VP (VBD jumped)
+      (PP (IN over)
+        (NP (DT the) (JJ rotund) (JJ elderly) (NN man))))))
+
