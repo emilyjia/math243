@@ -2,16 +2,20 @@
 # number of occurrences of SBAR, POS, double JJ
 import fnmatch
 
+metrics = ["ROOT", "S", "SBAR", "SBARQ", "SINV", "SQ", "ADJP"] + \
+  ["ADVP", "CONJP", "FRAG", "INTJ", "LST", "NAC"] + \
+  ["NP", "NX", "PP", "PRN", "PRT", "QP", "RRC", "UCP", "VP"] + \
+  ["WHADJ", "WHAVP", "WHNP", "WHPP"]
+
 def main():
   file_name = raw_input("File with trees: ")
+  for metric in metrics:
+    with open(file_name, 'r') as f:
+      print(sum(line.count(metric) for line in f))
+
   with open(file_name, 'r') as f:
-    print(sum(line.count("(ROOT") for line in f))
-  with open(file_name, 'r') as f:
-    print(sum(line.count("(SBAR") for line in f))
-  with open(file_name, 'r') as f:
-    print(sum(line.count("(POS") for line in f))
-  with open(file_name, 'r') as f:
-    print(sum(line.count("(JJ *) (JJ *))") for line in f))
+    x = sum(1 if (line.count("JJ") > 2) else 0 for line in f)
+    print x
 
 if __name__ == "__main__":
     main()
