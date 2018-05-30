@@ -18,8 +18,8 @@ def getText(articleUrl):
   return text
 
 r = Rake()
-file = open("ap_url_file.txt", "r")
-output = open("ap_text_file.txt", "w")
+file = open("wapo_url_file.txt", "r")
+output = open("wapo_text_file.txt", "w")
 count = 0
 while count < 500:
   for url in file:
